@@ -9,6 +9,8 @@ import { AddModal, DuplicateModal, HomeModal, UpdateModal } from "./modal";
 export default function PatientAdd() {
   let params = useParams();
 
+  params = { person_no: 35 };
+
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [sex, setSex] = useState(0);
@@ -24,9 +26,9 @@ export default function PatientAdd() {
 
   useEffect(() => {
     if (params.person_no == "add") {
-      setPageTitle("เพิ่มบัญชีผู้ป่วย");
+      setPageTitle("เพิ่มบัญชีผู้ใช้");
     } else {
-      setPageTitle("แก้ไขบัญชีผู้ป่วย");
+      setPageTitle("แก้ไขบัญชีผู้ใช้");
     }
   }, []);
 

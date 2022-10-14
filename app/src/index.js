@@ -26,6 +26,7 @@ ReactDOM.render(
       <Route path="/patient/:actionId" element={<PatientAdd />} />
       <Route path="/patient/view/:id" element={<PatientView />} />
       <Route path="report/all" element={<ChartPatient />} />
+
       <Route path="/user/:person_no" element={<UserAdd />} />
       <Route path="/role_user/view/:id" element={<User />} />
       <Route path="/role_user/stats/:id" element={<UserReport />} />
