@@ -36,24 +36,7 @@ export default function PatientAdd() {
     async function fetchData(personNo) {
       let json = await API_GET("personData/" + personNo);
 
-      // var data = json
       var data = json.data;
-      // var data1 = json.data1.rows[0];
-      // var data2 = json.data2.rows[0];
-      // var data3 = json.data3.rows[0];
-
-      // if(data1.g1_time >= 60){
-      //     var checkMin = parseInt(data1.g1_time / 60);
-      //     var checkMin2 = checkMin * 60;
-      //     var checkSec = data1.g1_time - checkMin2;
-
-      //     setMin(checkMin);
-      //     setSec(checkSec)
-
-      // }else{
-      //     setMin(0);
-      //     setSec(data1.g1_time);
-      // }
 
       setpersonNo(data.person_no);
       setName(data.name);

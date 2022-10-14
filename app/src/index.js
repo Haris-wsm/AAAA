@@ -26,9 +26,11 @@ ReactDOM.render(
       <Route path="/patient/:actionId" element={<PatientAdd />} />
       <Route path="/patient/view/:id" element={<PatientView />} />
       <Route path="report/all" element={<ChartPatient />} />
-
+      // เพิ่มและแก้ไข
       <Route path="/user/:person_no" element={<UserAdd />} />
+      // ดูรายบุคคล
       <Route path="/role_user/view/:id" element={<User />} />
+      // กราฟ
       <Route path="/role_user/stats/:id" element={<UserReport />} />
     </Routes>
   </BrowserRouter>,

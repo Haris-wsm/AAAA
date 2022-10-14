@@ -67,14 +67,20 @@ const Stats = () => {
       labels: labels,
       datasets: [
         {
-          label: "จำนวนการเล่นเกมทั้งหมดของผู้ป่วย",
+          label: "จำนวนการเล่นเกมทั้งหมดของผู้ป่วย ",
           data: data,
-          backgroundColor: "rgba(175, 159, 223, 0.8)",
+          // All same color
+          // backgroundColor: "rgba(175, 159, 223, 0.8)",
+
+          // Diff color
+          backgroundColor: [
+            "rgba(175, 159, 223, 0.8)",
+            "rgba(255, 0, 0, 0.8)",
+            "rgba(0, 255, 255, 0.8)",
+          ],
         },
       ],
     };
-
-    console.log(dataset);
 
     setChartData(dataset);
     setIsLoading(true);
