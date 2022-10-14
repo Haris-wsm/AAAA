@@ -190,7 +190,7 @@ export default function PatientAdd() {
               <Sidebar />
             </div>
             <div className="col-10 p-0">
-              <h1 className="title">แก้ไขบัญชีผู้ใช้</h1>
+              <h1 className="title">{pageTitle}</h1>
               <div className="p-5 hight-one">
                 <div className="content border rounded-3 p-2 shadow">
                   <Form
@@ -288,16 +288,14 @@ export default function PatientAdd() {
                       </Row>
                     </Row>
                     <Row>
-                      <Col md={6}>
+                      <Col md={12} className="d-flex justify-content-center">
                         <Button
                           as="input"
                           type="submit"
                           value="บันทึก"
-                          className="bg-green re-bor my-2"
+                          className="bg-green re-bor my-2 mx-2"
                           onClick={doUpdatePerson}
                         />
-                      </Col>
-                      <Col md={6}>
                         <Button
                           as="input"
                           type="reset"
@@ -308,6 +306,17 @@ export default function PatientAdd() {
                           }}
                         />
                       </Col>
+                      {/* <Col md={6}>
+                        <Button
+                          as="input"
+                          type="reset"
+                          value="ยกเลิก"
+                          className="bg-red re-bor my-2"
+                          onClick={() => {
+                            navigate(-1);
+                          }}
+                        />
+                      </Col> */}
                     </Row>
                   </Form>
                 </div>
