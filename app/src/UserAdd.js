@@ -190,7 +190,7 @@ export default function PatientAdd() {
               <Sidebar />
             </div>
             <div className="col-10 p-0">
-              <h1 className="title">เพิ่มบัญชีผู้ใช้</h1>
+              <h1 className="title">แก้ไขบัญชีผู้ใช้</h1>
               <div className="p-5 hight-one">
                 <div className="content border rounded-3 p-2 shadow">
                   <Form
@@ -303,6 +303,9 @@ export default function PatientAdd() {
                           type="reset"
                           value="ยกเลิก"
                           className="bg-red re-bor my-2"
+                          onClick={() => {
+                            navigate(-1);
+                          }}
                         />
                       </Col>
                     </Row>

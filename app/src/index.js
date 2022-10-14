@@ -16,6 +16,7 @@ import PatientView from "./components/PatientView";
 import ChartPatient from "./chartPatient";
 import UserAdd from "./UserAdd";
 import User from "./components/user";
+import UserReport from "./components/Stats";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -27,6 +28,7 @@ ReactDOM.render(
       <Route path="report/all" element={<ChartPatient />} />
       <Route path="/user/:person_no" element={<UserAdd />} />
       <Route path="/role_user/view/:id" element={<User />} />
+      <Route path="/role_user/stats/:id" element={<UserReport />} />
     </Routes>
   </BrowserRouter>,
 
