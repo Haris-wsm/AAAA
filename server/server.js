@@ -37,6 +37,7 @@ const port = 8080; //ปกติใช้ 80 หรือ 443
 const cors = require("cors");
 const { response, query } = require("express");
 const { debug } = require("console");
+const User = require("./libs/User");
 
 app.use(cors());
 
@@ -1251,6 +1252,40 @@ app.get("/api/product/:productId", async (req, res) => {
       result: false,
       message: ex.message,
     });
+  }
+});
+
+// --------------- API Game Services -------------------//
+
+app.get("/api/game/stats", async (req, res, next) => {
+  // Query
+
+  const sql = `SELECT COUNT(*) AS total, game_type_no AS game_no
+              FROM game
+              GROUP BY game_type_no;`;
+
+  try {
+    const rst = await pool.query(sql);
+
+    res.send({ result: true, data: rst.rows });
+  } catch (error) {
+    res.send({ result: false });
+  }
+});
+
+app.get("/api/game/stats/:patientId", async (req, res) => {
+  const { patientId } = req.params;
+
+  const sql = `SELECT COUNT(*) AS total, game_type_no AS game_no
+                FROM game
+                where patient_no = $1
+                GROUP BY game_type_no`;
+
+  try {
+    const rst = await pool.query(sql, [patientId]);
+    res.send({ result: true, data: rst.rows });
+  } catch (error) {
+    res.send({ result: false });
   }
 });
 
