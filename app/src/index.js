@@ -13,6 +13,8 @@ import PatientReport from "./PatientReport";
 import PatientDetail from "./PatientDetail";
 import PatientAdd from "./PatientAdd";
 import PatientView from "./components/PatientView";
+import PatientGames from "./components/PatientGames";
+import PatientGame from "./components/PatientGame";
 import ChartPatient from "./chartPatient";
 import UserAdd from "./UserAdd";
 import User from "./components/user";
@@ -25,6 +27,8 @@ ReactDOM.render(
       <Route path="home" element={<Home />} />
       <Route path="/patient/:actionId" element={<PatientAdd />} />
       <Route path="/patient/view/:id" element={<PatientView />} />
+      <Route path="/patient/view/:id/games" element={<PatientGames />} />
+      <Route path="/patient/view/:id/game/:gameId" element={<PatientGame />} />
       <Route path="report/all" element={<ChartPatient />} />
       // เพิ่มและแก้ไข
       <Route path="/user/:person_no" element={<UserAdd />} />

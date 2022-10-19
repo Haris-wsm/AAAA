@@ -861,6 +861,41 @@ app.get("/api/report", checkAuth, async (req, res) => {
 
 /* The above code is a POST request to the server. It is sending the data from the form to the server. */
 // app.post("/api/person/add", checkAuth, async (req, res) => {
+
+// ======================= Patient ================================ //
+
+app.get("/api/patient/:id/games", async (req, res) => {
+  const sql = `SELECT * FROM game WHERE patient_no = $1
+               ORDER BY game_no desc LIMIT 5
+              `;
+
+  try {
+    const data = await pool.query(sql, [req.params.id]);
+
+    res.send({ result: true, data: data.rows });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ result: false });
+  }
+});
+
+app.get("/api/patient/:id/games/:gameId", async (req, res) => {
+  const sql = `SELECT * FROM game
+              INNER JOIN  patient ON patient.patient_no = game.patient_no 
+              WHERE game.patient_no=$1 AND game_no=$2
+              `;
+
+  try {
+    const data = await pool.query(sql, [req.params.id, req.params.gameId]);
+
+    res.send({ result: true, data: data.rows[0] });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ result: false });
+  }
+});
+
+// ======================= User ================================//
 app.post("/api/person/add", async (req, res) => {
   const input = req.body;
 
